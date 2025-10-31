@@ -8644,6 +8644,33 @@ namely-pat:
             description: The Personal Access Token for your Namely account
             doc_section: '#step-2-generating-your-personal-access-token'
 
+nerdio:
+    display_name: Nerdio
+    categories:
+        - support
+    auth_mode: OAUTH2_CC
+    authorization_url: https://${connectionConfig.base_url}/oauth/authorize
+    token_url: https://login.microsoftonline.com/${connectionConfig.tenant_id}/oauth2/v2.0/token
+    authorization_params:
+        response_type: code
+    token_params:
+        grant_type: authorization_code
+    connection_config:
+        base_url:
+            type: string
+            title: Base URL
+            description: The base URL of your Nerdio account. If your Nerdio portal URL is https://my-company-name.azurewebsites.net/accounts, use 'my-company-name.azurewebsites.net'
+            example: my-company-name.azurewebsites.net
+            format: hostname
+        tenant_id:
+            type: string
+            title: Tenant ID
+            description: The Microsoft Entra tenant ID of your organization
+            example: f81d4fae-7dec-11d0-a765-00a0c91e6bf6
+            format: uuid
+    docs: https://nango.dev/docs/integrations/all/nerdio
+    docs_connect: https://nango.dev/docs/integrations/all/nerdio/connect
+
 netsuite:
     display_name: NetSuite (OAuth)
     categories:

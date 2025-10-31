@@ -1,0 +1,87 @@
+---
+title: Nerdio - How do I link my account?
+sidebarTitle: Nerdio
+---
+
+# Overview
+
+To authenticate with Nerdio, you need:
+1. **Base URL** – Your Nerdio portal hostname (e.g., `my-company-name.azurewebsites.net`).
+2. **Tenant ID** – Your Microsoft Entra ID (Azure AD) tenant ID.
+3. **Client ID** – Your Azure AD application client ID.
+4. **Client Secret** – Your Azure AD application client secret.
+
+This guide walks you through enabling API access in Nerdio and setting up Azure AD authentication.
+
+### Prerequisites:
+
+- Admin access to your Nerdio Manager portal.
+- Admin access to your Microsoft Entra ID (Azure AD) tenant.
+
+### Step 1: Enable REST API access in Nerdio
+
+1. Log in to your Nerdio Manager portal as an administrator.
+2. Follow the steps in [Nerdio's Getting Started guide](https://nmehelp.getnerdio.com/hc/en-us/articles/26124297445901-Getting-Started-with-REST-API-Integration) to enable REST API access.
+
+### Step 2: Find your Nerdio Base URL
+
+Your base URL is the hostname portion of your Nerdio portal URL:
+
+- If your portal URL is `https://my-company-name.azurewebsites.net/accounts` → Your base URL is `my-company-name.azurewebsites.net`
+- If your portal URL is `https://acme-corp.azurewebsites.net/dashboard` → Your base URL is `acme-corp.azurewebsites.net`
+
+Note: Only enter the hostname, not the full URL with `https://` or any path components.
+
+### Step 3: Create Azure AD Application
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) (formerly Azure Portal).
+2. Navigate to **Identity** > **Applications** > **App registrations**.
+3. Click **New registration**.
+4. Enter a name for your application (e.g., "Nerdio API Integration").
+5. Select the appropriate account type for your organization.
+6. Set the redirect URI to `https://api.nango.dev/oauth/callback`.
+7. Click **Register**.
+
+<img src="/integrations/all/nerdio/app-registration.png" style={{maxWidth: "450px" }}/>
+
+### Step 4: Note your Tenant ID and Client ID
+
+After creating the application:
+1. On the application's **Overview** page, copy the **Application (client) ID** – this is your **Client ID**.
+2. Also copy the **Directory (tenant) ID** – this is your **Tenant ID**.
+
+<img src="/integrations/all/nerdio/client-tenant-ids.png" style={{maxWidth: "450px" }}/>
+
+### Step 5: Create a Client Secret
+
+1. In your Azure AD application, go to **Certificates & secrets**.
+2. Click **New client secret**.
+3. Add a description and select an expiration period.
+4. Click **Add**.
+5. **Important**: Copy the secret **Value** immediately – this is your **Client Secret**. It won't be shown again.
+
+<img src="/integrations/all/nerdio/client-secret.png" style={{maxWidth: "450px" }}/>
+
+### Step 6: Configure API Permissions
+
+1. In your Azure AD application, go to **API permissions**.
+2. Add the required permissions for Nerdio API access as specified in [Nerdio's documentation](https://nmehelp.getnerdio.com/hc/en-us/articles/26124297445901-Getting-Started-with-REST-API-Integration).
+3. Grant admin consent for your organization if required.
+
+### Step 7: Enter your details in the Connect UI
+
+Once you have all the required information:
+1. Open the form where you connect to Nerdio.
+2. Enter your **Base URL** (hostname only, e.g., `my-company-name.azurewebsites.net`).
+3. Enter your **Tenant ID** (from Azure AD).
+4. Enter your **Client ID** (from Azure AD application).
+5. Enter your **Client Secret** (from Azure AD application).
+6. Click **Connect**.
+
+You are now connected to Nerdio.
+
+## Additional Resources
+
+- [Nerdio REST API Overview](https://nmehelp.getnerdio.com/hc/en-us/articles/26124297319821-REST-API-Overview)
+- [REST API Endpoint Implementation](https://nmehelp.getnerdio.com/hc/en-us/articles/26124316548877-REST-API-Endpoint-Implementation)
+

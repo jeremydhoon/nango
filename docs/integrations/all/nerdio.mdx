@@ -1,0 +1,67 @@
+---
+title: Nerdio
+sidebarTitle: Nerdio
+---
+
+import Overview from "/snippets/overview.mdx"
+import PreBuiltTooling from "/snippets/generated/nerdio/PreBuiltTooling.mdx"
+import PreBuiltUseCases from "/snippets/generated/nerdio/PreBuiltUseCases.mdx"
+
+<Overview />
+<PreBuiltTooling />
+<PreBuiltUseCases />
+
+## Access requirements
+| Pre-Requisites | Status | Comment|
+| - | - | - |
+| Paid dev account | ✅ | Nerdio Manager account required for API access |
+| Paid test account | ✅ | Nerdio Manager account required for testing |
+| Partnership | ❌ | Not required |
+| App review | ❌ | Not required |
+| Security audit | ❌ | Not required |
+
+## Setup guide
+
+To connect to Nerdio, you'll need:
+
+1. **Base URL**: Your Nerdio portal URL (e.g., `my-company-name.azurewebsites.net`)
+2. **Tenant ID**: Your Microsoft Entra ID (Azure AD) tenant ID
+3. **Client ID**: Your Azure AD application client ID
+4. **Client Secret**: Your Azure AD application client secret
+
+### Steps:
+
+1. Enable REST API access in your Nerdio Manager portal
+2. Create an Azure AD application for API access
+3. Configure API permissions and generate client credentials
+4. Note your Nerdio base URL and Azure tenant ID
+
+For detailed setup instructions, see the [Nerdio REST API documentation](https://nmehelp.getnerdio.com/hc/en-us/articles/26124297445901-Getting-Started-with-REST-API-Integration).
+
+<Tip>Need help getting started? Get help in the [community](https://nango.dev/slack).</Tip>
+
+<Note>Contribute improvements to the setup guide by [editing this page](https://github.com/nangohq/nango/tree/master/docs/integrations/all/nerdio.mdx)</Note>
+
+## Useful links
+
+- [Nerdio REST API Overview](https://nmehelp.getnerdio.com/hc/en-us/articles/26124297319821-REST-API-Overview)
+- [Getting Started with REST API Integration](https://nmehelp.getnerdio.com/hc/en-us/articles/26124297445901-Getting-Started-with-REST-API-Integration)
+- [REST API Endpoint Implementation](https://nmehelp.getnerdio.com/hc/en-us/articles/26124316548877-REST-API-Endpoint-Implementation)
+
+<Note>Contribute useful links by [editing this page](https://github.com/nangohq/nango/tree/master/docs/integrations/all/nerdio.mdx)</Note>
+
+## API gotchas
+
+- Nerdio uses OAuth 2.0 authentication via Microsoft Entra ID (Azure AD)
+- You must enable REST API access in your Nerdio Manager portal before using the API
+- The base URL varies by deployment and can be found in your Nerdio portal URL
+- API authentication requires both Azure AD credentials and your Nerdio base URL
+
+<Note>Contribute API gotchas by [editing this page](https://github.com/nangohq/nango/tree/master/docs/integrations/all/nerdio.mdx)</Note>
+
+## Going further
+
+<Card title="Connect to Nerdio" icon="link" href="/integrations/all/nerdio/connect" horizontal>
+  Guide to connect to Nerdio using Nango Connect.
+</Card>
+
